@@ -21,7 +21,7 @@ DROP TABLE IF EXISTS peopleskills;
 DROP TABLE IF EXISTS people;
 DROP TABLE IF EXISTS skills; 
 DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS peoplesroles;
+DROP TABLE IF EXISTS peopleroles;
 SET FOREIGN_KEY_CHECKS=1;
 
 # Section 2
@@ -81,7 +81,7 @@ CREATE TABLE people (
 # Their last names must exactly be “Person 1”, “Person 2”, etc.
 # Other fields are for you to assign.
 
-insert into people (people_id,people_last_name,date_joined) values (1,'Person 1', '11/11/23');
+insert into people (people_id, people_last_name, date_joined) values (1, 'Person 1', '11/11/23');
 insert into people (people_id,people_first_name,people_last_name,email,discord_handle, brief_bio,date_joined) values (2,'Kermit', 'Person 2', 'kermytf@gmail.com', 'Froggy', 'Entertainer and Musician', '11/11/23');
 insert into people (people_id,people_first_name,people_last_name,email,discord_handle, brief_bio,date_joined) values (3,'Luffy','Person 3', 'kingofthepirates@gmail.com', 'strawhat', 'Yonko and future king of the pirates', '11/11/23');
 insert into people (people_id,people_first_name,people_last_name,email,discord_handle, brief_bio,date_joined) values (4,'Jodi', 'Person 4', 'freejodi@gmail.com', 'survior', 'Falseley accused convict, recovering from amnesia', '11/11/23');
@@ -89,7 +89,7 @@ insert into people (people_id,people_first_name,people_last_name,email,discord_h
 insert into people (people_id,people_first_name,people_last_name, brief_bio,date_joined) values (6,'Miles', 'Person 6', 'Also known as spiderman, currently travelling the multiverse', '11/11/23');
 insert into people (people_id,people_first_name,people_last_name, brief_bio,date_joined) values (7,'Isaiah', 'Person 7', 'Might be spiderman', '11/11/23');
 insert into people (people_id,people_first_name,people_last_name, brief_bio,date_joined) values (8,'Freddy', 'Person 8', 'Loves to eat and get quirky at night', '11/11/23');
-insert into people (people_id,people_first_name,people_last_name, brief_bio,date_joined) values (9,'Ye', 'Person 9' 'Genius visionary loves everyone equally', '11/11/23');
+insert into people (people_id,people_first_name,people_last_name, brief_bio,date_joined) values (9,'Ye', 'Person 9', 'Genius visionary loves everyone equally', '11/11/23');
 insert into people (people_id,people_first_name,people_last_name, brief_bio,date_joined) values (10,'OJ', 'Person 10', 'I did not do it', '11/11/23');
 
 
@@ -178,10 +178,11 @@ insert into roles(id, name, sort_priority) values (6, 'Mentor', 60);
 # Create peopleroles( id, people_id, role_id, date_assigned )
 # None of the fields can be null.  ID can be auto_increment
 create table peopleroles(
-    id int AUTOINCREMENT NOT NULL, 
+    id int AUTO_INCREMENT NOT NULL, 
     people_id int NOT NULL, 
     role_id int NOT NULL, 
-    date_assigned date NOT NULL
+    date_assigned date NOT NULL,
+    PRIMARY KEY (id)
     );
 
 
